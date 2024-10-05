@@ -1,39 +1,26 @@
-# def combinationSum(arr, target):
-#     print(arr, target)
-    
-
-# arr = list(input('Enter list candidates : '))
-# target = int(input("Enter target : "))
-
-# combinationSum(arr, target)
-
 def combinationSum(candidates, target):
     # Sort the candidates array (optional for optimization)
     candidates.sort()
+    res = []
     
-    def backtrack(remain, combo, start):
-        if remain == 0:
+    def backtrack(i, cur, total):
+        if total == target:
             # Found a valid combination
-            result.append(list(combo))
+            res.append(cur.copy())
             return
-        elif remain < 0:
+        elif i >= len(candidates) or total > target:
             # Exceeded the sum, stop further exploration
             return
         
-        for i in range(start, len(candidates)):
-            candidate = candidates[i]
-            # Add the number to the current combination
-            combo.append(candidate)
-            # Explore further with the updated combination and remaining target
-            backtrack(remain - candidate, combo, i)
-            # Backtrack and remove the number from the current combination
-            combo.pop()
+        cur.append(candidates[i])
+        backtrack(i, cur, total + candidates[i])
+        cur.pop()
+        backtrack(i + 1 , cur, total)
     
-    result = []
-    backtrack(target, [], 0)
-    return result
+    backtrack(0, [], 0)
+    return res
 
 # Example usage
 candidates = [2, 3, 6, 7]
-target = 7
+target = 8
 print(combinationSum(candidates, target))
