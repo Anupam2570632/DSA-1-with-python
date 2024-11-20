@@ -1,2 +1,1 @@
-s = 'abc'
-print(s.len())
+ if not inserted:

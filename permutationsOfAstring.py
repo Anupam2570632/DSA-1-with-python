@@ -4,9 +4,7 @@ def permutation(string, left, right):
     else:
         for i in range(left, right + 1):
             
-            print(string[left], string[i]);
             string[left], string[i] = string[i], string[left]
-            print(string[left], string[i]);
          
             permutation(string, left + 1, right)
             
