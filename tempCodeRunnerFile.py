@@ -1,1 +1,1 @@
- if not inserted:
+1

@@ -15,3 +15,4 @@ print(arr)
 arr.append(7)
 
 print(arr)
+print(arr.index(7))

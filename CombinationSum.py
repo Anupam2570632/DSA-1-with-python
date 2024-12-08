@@ -16,11 +16,10 @@ def combinationSum(candidates, target):
         backtrack(i, cur, total + candidates[i])
         cur.pop()
         backtrack(i + 1 , cur, total)
-    
     backtrack(0, [], 0)
     return res
 
 # Example usage
 candidates = [2, 3, 6, 7]
-target = 8
+target = 6
 print(combinationSum(candidates, target))

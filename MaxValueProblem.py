@@ -7,12 +7,9 @@ def MaxValue(arr, left, right):
     LM = MaxValue(arr, left, mid)
     RM = MaxValue(arr, mid + 1, right)
     
-    if( LM > RM):
-        return LM
-    else:
-        return RM
+    return max(LM, RM)
     
 # example
-arr = [2, 6, 3, 18, 12, 21, 32, 17]
+arr = [2, 6, 3, 18, 12, 21, 32, 174]
 
 print(MaxValue(arr, 0, len(arr)-1))
